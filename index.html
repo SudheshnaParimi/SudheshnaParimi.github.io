@@ -2,13 +2,25 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Sudheshna Parimi | Portfolio</title>
+    <title>Sudheshna Parimi | AI & LLM Portfolio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <style>
+      :root {
+        --bg: #020617;
+        --bg-elevated: #020617;
+        --border-subtle: rgba(148, 163, 184, 0.35);
+        --accent: #4f46e5;
+        --accent-soft: rgba(79, 70, 229, 0.18);
+        --accent-text: #e0e7ff;
+        --text-main: #e5e7eb;
+        --text-soft: #9ca3af;
+        --chip-bg: rgba(15, 23, 42, 1);
+      }
+
       * {
         box-sizing: border-box;
         margin: 0;
@@ -16,11 +28,11 @@
       }
 
       body {
-        font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
           "Segoe UI", sans-serif;
-        background: #0f172a;
-        color: #e5e7eb;
-        line-height: 1.6;
+        background: radial-gradient(circle at top, #0b1120 0, #020617 50%);
+        color: var(--text-main);
+        min-height: 100vh;
       }
 
       a {
@@ -28,143 +40,265 @@
         text-decoration: none;
       }
 
-      /* Navbar */
-      header {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        background: rgba(15, 23, 42, 0.9);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(148, 163, 184, 0.3);
-      }
-
-      .nav-inner {
-        max-width: 980px;
+      .page {
+        max-width: 1120px;
         margin: 0 auto;
-        padding: 12px 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .logo {
-        font-weight: 600;
-        letter-spacing: 0.04em;
-      }
-
-      nav ul {
-        display: flex;
-        gap: 18px;
-        list-style: none;
-        font-size: 0.9rem;
-      }
-
-      nav a {
-        opacity: 0.8;
-      }
-
-      nav a:hover {
-        opacity: 1;
-      }
-
-      /* Layout */
-      main {
-        max-width: 980px;
-        margin: 0 auto;
-        padding: 40px 20px 60px;
-      }
-
-      section {
-        padding: 40px 0;
-        border-bottom: 1px solid rgba(31, 41, 55, 0.8);
-      }
-
-      .section-title {
-        font-size: 1.2rem;
-        font-weight: 600;
-        margin-bottom: 16px;
-        color: #f9fafb;
-      }
-
-      /* Hero */
-      .hero {
+        padding: 32px 18px 40px;
         display: grid;
-        grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+        grid-template-columns: minmax(0, 2.3fr) minmax(0, 4fr);
         gap: 32px;
+      }
+
+      /* LEFT SIDEBAR */
+      .sidebar {
+        position: sticky;
+        top: 24px;
+        align-self: flex-start;
+        border-radius: 18px;
+        border: 1px solid var(--border-subtle);
+        background: linear-gradient(
+          145deg,
+          rgba(15, 23, 42, 0.98),
+          rgba(15, 23, 42, 1)
+        );
+        padding: 24px 20px 22px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.9);
+      }
+
+      .pill {
+        display: inline-flex;
         align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: var(--accent-soft);
+        color: var(--accent-text);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
       }
 
-      .hero-title {
-        font-size: 2.1rem;
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: #22c55e;
+      }
+
+      .name {
+        font-size: 1.9rem;
         font-weight: 600;
-        margin-bottom: 8px;
+        margin-top: 14px;
+        margin-bottom: 4px;
       }
 
-      .hero-subtitle {
-        color: #9ca3af;
+      .role {
+        font-size: 0.93rem;
+        color: var(--text-soft);
+        margin-bottom: 16px;
+      }
+
+      .summary {
+        font-size: 0.9rem;
+        color: #cbd5f5;
+        line-height: 1.7;
         margin-bottom: 18px;
       }
 
-      .hero-tag {
-        display: inline-block;
-        padding: 4px 10px;
-        border-radius: 999px;
-        font-size: 0.75rem;
+      .sidebar-section-title {
+        font-size: 0.8rem;
         text-transform: uppercase;
-        letter-spacing: 0.08em;
-        background: rgba(59, 130, 246, 0.1);
-        color: #60a5fa;
-        margin-bottom: 10px;
+        letter-spacing: 0.14em;
+        color: var(--text-soft);
+        margin-bottom: 6px;
       }
 
-      .hero-box {
-        border-radius: 16px;
-        border: 1px solid rgba(148, 163, 184, 0.35);
-        padding: 18px;
-        background: radial-gradient(
-          circle at top left,
-          rgba(59, 130, 246, 0.15),
-          transparent
-        );
+      .sidebar-list {
+        list-style: none;
         font-size: 0.9rem;
-        color: #d1d5db;
+        color: #e5e7eb;
+        margin-bottom: 18px;
       }
 
-      /* Lists */
-      ul.simple {
-        list-style: disc;
-        margin-left: 18px;
-        color: #d1d5db;
-        font-size: 0.94rem;
-      }
-
-      ul.simple li + li {
+      .sidebar-list li + li {
         margin-top: 4px;
       }
 
-      /* Projects */
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .btn {
+        font-size: 0.86rem;
+        padding: 7px 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.6);
+        background: rgba(15, 23, 42, 1);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        border-color: var(--accent);
+        background: var(--accent);
+        color: #e5e7ff;
+      }
+
+      .btn span.icon {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      /* RIGHT MAIN CONTENT */
+      .content {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      section {
+        border-radius: 18px;
+        border: 1px solid var(--border-subtle);
+        padding: 18px 18px 16px;
+        background: radial-gradient(
+          circle at top left,
+          rgba(79, 70, 229, 0.11),
+          transparent
+        );
+      }
+
+      section:nth-of-type(2n) {
+        background: radial-gradient(
+          circle at top right,
+          rgba(8, 47, 73, 0.4),
+          rgba(15, 23, 42, 1)
+        );
+      }
+
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .section-title {
+        font-size: 0.96rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #9ca3af;
+      }
+
+      .section-tag {
+        font-size: 0.75rem;
+        color: #64748b;
+      }
+
+      .section-body {
+        font-size: 0.92rem;
+        color: #e5e7eb;
+      }
+
+      .section-body p {
+        margin-bottom: 8px;
+        line-height: 1.7;
+        color: #d1d5db;
+      }
+
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 4px;
+      }
+
+      .chip {
+        font-size: 0.78rem;
+        padding: 4px 8px;
+        border-radius: 999px;
+        border: 1px solid rgba(148, 163, 184, 0.5);
+        background: var(--chip-bg);
+        color: #e5e7eb;
+      }
+
+      .chip-soft {
+        background: rgba(15, 23, 42, 0.9);
+        color: #cbd5f5;
+      }
+
+      /* SKILLS GRID */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 10px;
+        margin-top: 4px;
+      }
+
+      .skill-card {
+        border-radius: 12px;
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        padding: 10px 10px 9px;
+        background: rgba(15, 23, 42, 0.95);
+      }
+
+      .skill-title {
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .skill-desc {
+        font-size: 0.8rem;
+        color: var(--text-soft);
+      }
+
+      /* PROJECTS GRID */
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 10px;
       }
 
       .project-card {
         border-radius: 14px;
-        border: 1px solid rgba(55, 65, 81, 0.9);
-        padding: 16px 16px 14px;
-        background: rgba(15, 23, 42, 0.9);
+        border: 1px solid rgba(31, 41, 55, 0.9);
+        padding: 12px 11px 10px;
+        background: rgba(15, 23, 42, 0.98);
+        transition: transform 0.12s ease, box-shadow 0.12s ease,
+          border-color 0.12s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+        border-color: rgba(79, 70, 229, 0.7);
+      }
+
+      .project-title-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 6px;
+        margin-bottom: 2px;
       }
 
       .project-title {
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 4px;
+        font-size: 0.94rem;
+        font-weight: 500;
+      }
+
+      .project-status {
+        font-size: 0.75rem;
+        color: #22c55e;
       }
 
       .project-desc {
-        font-size: 0.9rem;
-        color: #9ca3af;
+        font-size: 0.85rem;
+        color: var(--text-soft);
         margin-bottom: 6px;
       }
 
@@ -173,163 +307,350 @@
         color: #6b7280;
       }
 
-      /* Footer / Contact */
-      .contact-links {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 10px;
+      /* TIMELINE / LEARNING PATH */
+      .timeline {
+        position: relative;
+        margin-top: 8px;
+        padding-left: 14px;
       }
 
-      .chip {
-        font-size: 0.85rem;
-        padding: 6px 10px;
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 3px;
+        top: 0;
+        bottom: 3px;
+        width: 1px;
+        background: linear-gradient(
+          to bottom,
+          rgba(148, 163, 184, 0.7),
+          transparent
+        );
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 14px;
+        margin-bottom: 10px;
+      }
+
+      .timeline-bullet {
+        position: absolute;
+        left: -2px;
+        top: 4px;
+        width: 7px;
+        height: 7px;
         border-radius: 999px;
-        border: 1px solid rgba(148, 163, 184, 0.5);
+        background: #e5e7eb;
       }
 
-      .chip-primary {
-        border-color: #3b82f6;
-        color: #bfdbfe;
+      .timeline-title {
+        font-size: 0.86rem;
+        font-weight: 500;
       }
 
-      footer {
-        text-align: center;
-        padding: 18px 0 26px;
-        font-size: 0.8rem;
+      .timeline-meta {
+        font-size: 0.78rem;
         color: #6b7280;
+        margin-bottom: 3px;
       }
 
-      @media (max-width: 720px) {
-        .hero {
+      .timeline-desc {
+        font-size: 0.82rem;
+        color: #cbd5f5;
+      }
+
+      /* FOOTER */
+      .footer {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 0 18px 24px;
+        font-size: 0.78rem;
+        color: #6b7280;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      @media (max-width: 860px) {
+        .page {
           grid-template-columns: 1fr;
+          padding-top: 20px;
         }
 
-        header {
+        .sidebar {
           position: static;
         }
+      }
 
-        main {
-          padding-top: 24px;
+      @media (max-width: 480px) {
+        .sidebar {
+          padding: 20px 16px 16px;
+        }
+
+        section {
+          padding: 16px 14px 13px;
         }
       }
     </style>
   </head>
   <body>
-    <header>
-      <div class="nav-inner">
-        <div class="logo">Sudheshna Parimi</div>
-        <nav>
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <!-- HERO -->
-      <section id="about" class="hero">
-        <div>
-          <div class="hero-tag">Aspiring AI / LLM Engineer</div>
-          <h1 class="hero-title">Hi, I'm Sudheshna 👋</h1>
-          <p class="hero-subtitle">
-            I’m interested in large language models (LLMs) and how AI can
-            understand and generate human language. I want to build useful
-            applications like chatbots, assistants, and tools that make complex
-            information easier to work with.
-          </p>
-          <p>
-            Right now I’m focusing on learning the fundamentals and building
-            small projects that I can share on GitHub and LinkedIn.
-          </p>
+    <div class="page">
+      <!-- LEFT SIDEBAR -->
+      <aside class="sidebar">
+        <div class="pill">
+          <span class="dot"></span>
+          Exploring AI & LLMs
         </div>
-
-        <div class="hero-box">
-          <strong>Current interests</strong>
-          <ul class="simple">
-            <li>Using LLM APIs to build simple apps</li>
-            <li>Prompt design and evaluation</li>
-            <li>Searching and chatting over documents</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- SKILLS -->
-      <section id="skills">
-        <h2 class="section-title">Skills & Tools (building)</h2>
-        <ul class="simple">
-          <li>Programming: Python (learning), basic Git & GitHub</li>
-          <li>AI / LLMs: prompt engineering, experimenting with APIs</li>
-          <li>Web: basic HTML, CSS, GitHub Pages for hosting</li>
-          <li>Soft skills: curiosity, self-learning, clear communication</li>
-        </ul>
-      </section>
-
-      <!-- PROJECTS -->
-      <section id="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-title">LLM Notes Helper</div>
-            <p class="project-desc">
-              A simple idea for a tool that takes messy notes and rewrites them
-              into clean summaries using a large language model.
-            </p>
-            <div class="project-meta">Status: planning | Tech: Python, LLM API</div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-title">Portfolio Website</div>
-            <p class="project-desc">
-              This website, hosted with GitHub Pages, where I share my journey
-              into AI and large language models.
-            </p>
-            <div class="project-meta">
-              Status: live | Tech: HTML, CSS, GitHub Pages
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-title">Next ideas</div>
-            <p class="project-desc">
-              Planning small projects such as a Q&amp;A bot over PDFs and an
-              email-writing assistant powered by an LLM.
-            </p>
-            <div class="project-meta">Status: ideas | Tech: LLM APIs</div>
-          </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact">
-        <h2 class="section-title">Contact</h2>
-        <p>
-          I’m always open to learning opportunities, collaborations, and
-          guidance in AI and LLMs. Feel free to reach out or connect with me.
+        <h1 class="name">Sudheshna Parimi</h1>
+        <p class="role">Aspiring AI / LLM Developer</p>
+        <p class="summary">
+          I’m interested in how large language models understand and generate
+          text, and I’m building a foundation in programming and AI to create
+          useful, real-world applications.
         </p>
-        <div class="contact-links">
+
+        <div style="margin-bottom: 12px">
+          <div class="sidebar-section-title">Focus areas</div>
+          <ul class="sidebar-list">
+            <li>Large language models & prompting</li>
+            <li>Text understanding & summarisation</li>
+            <li>Building simple AI-powered tools</li>
+          </ul>
+        </div>
+
+        <div style="margin-bottom: 12px">
+          <div class="sidebar-section-title">Currently learning</div>
+          <ul class="sidebar-list">
+            <li>Python & basic machine learning</li>
+            <li>Using LLM APIs in small projects</li>
+            <li>Git, GitHub, and collaboration</li>
+          </ul>
+        </div>
+
+        <div class="links">
           <a
-            class="chip chip-primary"
+            class="btn btn-primary"
             href="https://github.com/SudheshnaParimi"
             target="_blank"
-            >GitHub</a
           >
+            <span class="icon">★</span>
+            <span>GitHub Profile</span>
+          </a>
           <a
-            class="chip"
+            class="btn"
             href="https://www.linkedin.com/"
             target="_blank"
-            >LinkedIn</a
           >
-          <!-- Replace with your real LinkedIn URL later -->
+            <span class="icon">in</span>
+            <span>LinkedIn</span>
+          </a>
         </div>
-      </section>
-    </main>
+      </aside>
 
-    <footer>© <span id="year"></span> Sudheshna Parimi</footer>
+      <!-- RIGHT CONTENT -->
+      <main class="content">
+        <!-- ABOUT -->
+        <section id="about">
+          <div class="section-header">
+            <h2 class="section-title">Overview</h2>
+            <span class="section-tag">who I am</span>
+          </div>
+          <div class="section-body">
+            <p>
+              I’m at the beginning of my journey in artificial intelligence with
+              a strong interest in large language models (LLMs). I’m curious
+              about how models like GPT can answer questions, rewrite text, and
+              act as intelligent assistants.
+            </p>
+            <p>
+              My goal is to gradually move from experimenting with AI tools to
+              building my own LLM-powered applications, while growing my skills
+              in programming, problem solving, and system design.
+            </p>
+            <div class="chips">
+              <span class="chip chip-soft">LLMs & Generative AI</span>
+              <span class="chip chip-soft">Self-taught learner</span>
+              <span class="chip chip-soft">Open to collaboration</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+          <div class="section-header">
+            <h2 class="section-title">Skills & Tools</h2>
+            <span class="section-tag">developing foundations</span>
+          </div>
+          <div class="section-body">
+            <div class="skills-grid">
+              <div class="skill-card">
+                <div class="skill-title">Programming</div>
+                <div class="skill-desc">
+                  Learning Python and basic scripting; using Git and GitHub to
+                  manage projects and track progress.
+                </div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title">AI & LLM Concepts</div>
+                <div class="skill-desc">
+                  Understanding what large language models are, how prompting
+                  works, and how they can be used in apps.
+                </div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title">Web & Deployment</div>
+                <div class="skill-desc">
+                  HTML & CSS basics, deploying static sites using GitHub Pages,
+                  and creating simple portfolio pages.
+                </div>
+              </div>
+              <div class="skill-card">
+                <div class="skill-title">Soft Skills</div>
+                <div class="skill-desc">
+                  Curiosity, persistence, communication, and willingness to
+                  iterate and learn from feedback.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+          <div class="section-header">
+            <h2 class="section-title">Projects</h2>
+            <span class="section-tag">what I’m building</span>
+          </div>
+          <div class="section-body">
+            <p style="margin-bottom: 8px">
+              I’m starting with small, focused projects to get comfortable with
+              LLMs and turn ideas into working tools.
+            </p>
+            <div class="projects-grid">
+              <article class="project-card">
+                <div class="project-title-row">
+                  <h3 class="project-title">Portfolio Website</h3>
+                  <span class="project-status">Live</span>
+                </div>
+                <p class="project-desc">
+                  This site, built with HTML and CSS and hosted using GitHub
+                  Pages, showcases my interests and learning path in AI and
+                  LLMs.
+                </p>
+                <div class="project-meta">
+                  Tech: HTML, CSS, GitHub Pages<br />
+                  Focus: personal branding & presence
+                </div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-title-row">
+                  <h3 class="project-title">LLM Notes Helper</h3>
+                  <span class="project-status">Planned</span>
+                </div>
+                <p class="project-desc">
+                  A tool that sends messy notes to an LLM and returns clean,
+                  structured summaries and action points.
+                </p>
+                <div class="project-meta">
+                  Tech: Python, LLM API<br />
+                  Focus: summarisation & text cleanup
+                </div>
+              </article>
+
+              <article class="project-card">
+                <div class="project-title-row">
+                  <h3 class="project-title">Document Q&amp;A Bot</h3>
+                  <span class="project-status">Idea</span>
+                </div>
+                <p class="project-desc">
+                  A simple interface where users can upload a document and ask
+                  questions, answered with the help of an LLM.
+                </p>
+                <div class="project-meta">
+                  Tech: LLM API (future), basic search<br />
+                  Focus: retrieval & question answering
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- LEARNING PATH -->
+        <section id="learning">
+          <div class="section-header">
+            <h2 class="section-title">Learning Path</h2>
+            <span class="section-tag">step by step</span>
+          </div>
+          <div class="section-body">
+            <p>
+              I’m approaching AI and LLMs one step at a time, focusing on solid
+              fundamentals and practical experience.
+            </p>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-bullet"></div>
+                <div class="timeline-title">Foundation: Programming</div>
+                <div class="timeline-meta">Python · Git · Basic CS thinking</div>
+                <div class="timeline-desc">
+                  Strengthening problem-solving skills and getting comfortable
+                  writing and reading code.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-bullet"></div>
+                <div class="timeline-title">Exploring LLM APIs</div>
+                <div class="timeline-meta">
+                  Text generation · Prompting · Experiments
+                </div>
+                <div class="timeline-desc">
+                  Calling existing models through APIs to build small tools,
+                  such as helpers for notes or text rewriting.
+                </div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-bullet"></div>
+                <div class="timeline-title">Building LLM-powered Apps</div>
+                <div class="timeline-meta">
+                  Web UIs · simple backends · RAG (future)
+                </div>
+                <div class="timeline-desc">
+                  Connecting LLMs with user interfaces and documents to make
+                  interactive, useful applications.
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+          <div class="section-header">
+            <h2 class="section-title">Contact</h2>
+            <span class="section-tag">let’s connect</span>
+          </div>
+          <div class="section-body">
+            <p>
+              I’m open to internships, mentorship, and beginner-friendly
+              opportunities related to AI and large language models. If you have
+              advice, resources, or collaboration ideas, I’d love to hear from
+              you.
+            </p>
+            <div class="chips" style="margin-top: 10px">
+              <span class="chip">Best way to reach me: LinkedIn</span>
+              <span class="chip">GitHub for projects & code</span>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <span>© <span id="year"></span> Sudheshna Parimi</span>
+      <span>Built with HTML, CSS & GitHub Pages</span>
+    </footer>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
